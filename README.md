@@ -2,7 +2,7 @@
 
 Simple GUI for Aerospike
 
-##Compile
+## Compile
 
 mvn clean package -DskipTests
 
