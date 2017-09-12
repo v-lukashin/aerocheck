@@ -11,8 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import tx.vl.aerocheck.view.ContentController;
 import tx.vl.aerocheck.model.RowAero;
+import tx.vl.aerocheck.view.ContentController;
 import tx.vl.aerocheck.view.TopMenuController;
 
 public class Main extends Application {

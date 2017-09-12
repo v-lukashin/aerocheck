@@ -18,5 +18,6 @@ public class TopMenuController {
 
     public void setMainApp(Main mainApp) {
         this.mainApp = mainApp;
+        changeCluster();
     }
 }
