@@ -34,7 +34,9 @@ public class Main extends Application {
         FXMLLoader contentLoader = new FXMLLoader();
         contentLoader.setLocation(getClass().getResource("view/content.fxml"));
         AnchorPane content = contentLoader.load();
-        contentLoader.<ContentController>getController().setMainApp(this);
+        ContentController controller = contentLoader.<ContentController>getController();
+        controller.setMainApp(this);
+        stage.setOnCloseRequest(event -> controller.close());
 
         menuBar.setCenter(content);
 

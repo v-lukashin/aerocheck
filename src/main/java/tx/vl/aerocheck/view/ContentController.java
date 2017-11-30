@@ -11,9 +11,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import org.controlsfx.control.CheckComboBox;
 import tx.vl.aerocheck.Main;
 import tx.vl.aerocheck.model.RowAero;
-import org.controlsfx.control.CheckComboBox;
 import tx.vl.aerocheck.util.Util;
 
 import java.util.*;
@@ -227,5 +227,9 @@ public class ContentController {
         alert.setHeaderText(null);
         alert.setContentText(text);
         alert.showAndWait();
+    }
+
+    public void close() {
+        if (client != null) client.close();
     }
 }
