@@ -108,7 +108,7 @@ public class ContentController {
                                 if (set.contains(k)) mainApp.getListValues().add(new RowAero(k, v.toString()));
                             });
                         } else {
-                            record.bins.forEach((k, v) -> mainApp.getListValues().add(new RowAero(k, v.toString())));
+                            record.bins.forEach((k, v) -> mainApp.getListValues().add(new RowAero(k, v == null ? "null" : v.toString())));
                         }
                     }
                 } else {
