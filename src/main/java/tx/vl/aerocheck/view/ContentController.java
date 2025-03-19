@@ -165,10 +165,7 @@ public class ContentController {
     }
 
     private void refreshAerospikeInfo(String hosts) {
-        AsyncClientPolicy policy = new AsyncClientPolicy();
-        policy.scanPolicyDefault.socketTimeout = 60000;
-
-        client = new AsyncClient(policy, Util.parseAerospikeHosts(hosts));
+        client = new AsyncClient(null, Util.parseAerospikeHosts(hosts));
         Node[] nodes = client.getNodes();
         if (nodes.length > 0) {
             parseNamespaces(Info.request(null, nodes[0], "sets"));
