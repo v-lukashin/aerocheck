@@ -5,6 +5,7 @@ import com.aerospike.client.Info;
 import com.aerospike.client.Key;
 import com.aerospike.client.Record;
 import com.aerospike.client.async.AsyncClient;
+import com.aerospike.client.async.AsyncClientPolicy;
 import com.aerospike.client.cluster.Node;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -164,7 +165,10 @@ public class ContentController {
     }
 
     private void refreshAerospikeInfo(String hosts) {
-        client = new AsyncClient(null, Util.parseAerospikeHosts(hosts));
+        AsyncClientPolicy policy = new AsyncClientPolicy();
+        policy.scanPolicyDefault.socketTimeout = 60000;
+
+        client = new AsyncClient(policy, Util.parseAerospikeHosts(hosts));
         Node[] nodes = client.getNodes();
         if (nodes.length > 0) {
             parseNamespaces(Info.request(null, nodes[0], "sets"));
